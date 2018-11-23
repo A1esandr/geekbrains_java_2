@@ -2,6 +2,7 @@
 Repository for Java course 2 level
 
 * lesson1
+
 Задание 1 урока
 
 1. Разобраться с имеющимся кодом;
