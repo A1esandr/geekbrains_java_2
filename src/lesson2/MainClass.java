@@ -71,13 +71,11 @@ public class MainClass {
                 cell = c;
                 try{
                     value = Integer.parseInt(array[i-1][c-1]);
+                    summ += value;
                 } catch (IllegalArgumentException e){
-                    value = 0;
                     String message = "в "+String.valueOf(row)+" ряду, "+String.valueOf(cell)+" ячейке";
                     throw new MyArrayDataException(message);
                 }
-
-                summ += value;
             }
         }
 
