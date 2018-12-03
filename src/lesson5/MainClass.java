@@ -42,14 +42,20 @@ public class MainClass {
         thread1.start();
         thread2.start();
 
-        while(thread1.getState().equals(Thread.State.RUNNABLE) || thread2.getState().equals(Thread.State.RUNNABLE)){}
+        try{
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e){
+            System.out.println(String.format("Исключение в потоках. %s", e.getMessage()));
+        }
+
 
         long connect = System.currentTimeMillis();
         System.arraycopy(arr1, 0, arr, 0, h);
         System.arraycopy(arr2, 0, arr, h, h);
         long end = System.currentTimeMillis();
         System.out.println(String.format("Время выполнния склейки массива %s", String.valueOf(end - connect)));
-        System.out.println("Завершение метода 2");
+        System.out.println(String.format("Завершение метода 2. Время выполнения %s", String.valueOf(end - start)));
     }
 
     private void methodTwoInternal(float[] arr, int number){
